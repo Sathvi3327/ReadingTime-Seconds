@@ -1,0 +1,41 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+class Time                                //The class
+{
+	private:                                //Access specifier
+		int seconds,HH,MM,SS;                 //Attribute(int variable)
+	public:
+		taketime();
+		convertintoseconds();
+		displaytime();
+};
+Time::taketime()
+{
+    cout<<"Enter time:"<<endl;             //Taking input from user
+    cout<<"Hours? ";          
+	  cin>>HH;
+    cout<<"Minutes? ";          
+	  cin>>MM;
+    cout<<"Seconds? ";          
+	  cin>>SS;
+}
+Time::convertintoseconds()
+{
+    seconds = HH*3600 + MM*60 + SS;
+}
+Time::displaytime()
+{
+    cout << "The time is = " <<setw(2)<<setfill('0')<<HH<<":"                //Printing values in HH:MM:SS format
+                             <<setw(2)<<setfill('0')<<MM<<":"
+                             <<setw(2)<<setfill('0')<<SS<<"\n";
+    cout << "Time in total seconds: " <<seconds;                             //Printing values in seconds
+}
+int main()
+{
+    Time t;                                 //Creates an object of Time
+    t.taketime();                           //Access attributes
+    t.convertintoseconds();
+    t.displaytime();
+    return 0;
+}
